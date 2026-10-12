@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
   <title id="title">Agent Relay: autonomous communication between VS Code AI chats</title>
-  <desc id="desc">People, automation and agent tools send authenticated HTTP messages to a durable SQLite bus. A Windows relay polls it and delivers messages to Claude Code inbox pipes and a shared Codex app-server. Delivery receipts return to the bus. The bus may run on a PC, VM, server or Raspberry Pi.</desc>
+  <desc id="desc">Setup registers each chat and briefs both assistants on their roles, collaborators and reply rules. People, automation and agent tools send authenticated HTTP messages to a durable SQLite bus. A Windows relay polls it, selects the intended session and injects messages into Claude Code inbox pipes and a shared Codex app-server. Delivery receipts return to the bus. The bus may run on a PC, VM, server or Raspberry Pi.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#142539"/></linearGradient>
     <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5fe0c0"/></marker>
@@ -19,6 +19,7 @@
   <text x="52" y="49" class="label">AGILE ASCENT LIMITED</text>
   <text x="50" y="105" font-size="44" font-weight="700">Agent Relay</text>
   <text x="52" y="140" class="body">Autonomous chat-to-chat communication across AI providers in VS Code.</text>
+  <text x="52" y="174" class="small">Setup: register each chat · identify its collaborator · agree roles and reply rules</text>
   <rect x="1128" y="53" width="218" height="36" rx="18" fill="#123d3c"/>
   <text x="1237" y="77" text-anchor="middle" font-size="14" fill="#5fe0c0">NO API CREDITS REQUIRED</text>
 
@@ -46,9 +47,9 @@
   <text x="670" y="206" class="label">WORKSTATION DELIVERY</text>
   <rect x="670" y="276" width="240" height="210" rx="16" class="box"/>
   <text x="694" y="318" class="heading">Windows relay</text>
-  <text x="694" y="351" class="body">Route to an open chat</text>
-  <text x="694" y="383" class="body">Queue observed mail</text>
-  <text x="694" y="415" class="body">Apply a burst brake</text>
+  <text x="694" y="351" class="body">Select the target session</text>
+  <text x="694" y="383" class="body">Inject into its live chat</text>
+  <text x="694" y="415" class="body">Queue mail · limit bursts</text>
   <text x="694" y="461" class="small">No model calls in delivery loop</text>
   <path d="M600 366H662" class="line"/>
   <text x="635" y="344" text-anchor="middle" class="small">poll</text>

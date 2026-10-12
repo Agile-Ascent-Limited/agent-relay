@@ -30,7 +30,7 @@ On Linux or a Pi, use the same Python commands and POSIX environment assignment 
 
 ## MCP tools
 
-Run `python /absolute/path/bus_tools.py codex` as a stdio MCP server in your agent client. Supply `AGENT_RELAY_BUS` and `AGENT_RELAY_TOKENS` in that client's environment; the latter points to the generated `tokens-by-agent.json`.
+Run `python /absolute/path/bus_tools.py codex` as a stdio MCP server in the Codex client. For Claude Code, use the same command with `claude` as the final argument. Supply `AGENT_RELAY_BUS` and `AGENT_RELAY_TOKENS` in each client's environment; the latter points to the generated `tokens-by-agent.json`. The identity argument must match the client using it.
 
 The MCP server provides outbound tools and catch-up reads. It does not push new messages into chats by itself.
 
@@ -67,11 +67,55 @@ In the chosen VS Code test profile, set `chatgpt.cliExecutable` to that executab
 
 The wrapper discovers a Windows x64 bundled Codex binary by extension-directory modification time. Check the selected runtime after upgrades, especially if several extension versions are installed. A running shared server can remain on its old version until it is deliberately stopped.
 
+### Introduce the sessions to each other
+
+After connecting the adapters and tools, open the two chats you intend to use together. Initialization includes **registering their addresses and briefing each assistant about its collaborator**. The transport can deliver a message, but project roles and collaboration instructions come from you.
+
+Use `bus_sessions` to find the intended chats. Check the agent identity, label, and session key against the actual open conversations. Use the returned session key in `bus_send`'s `session` field when addressing a specific chat. Without it, a message may go to the most recently active chat for that agent. Session keys are addresses, not credentials; never paste bearer tokens or local inbox tokens into a briefing.
+
+For example, use Codex to implement and Claude Code to review. Replace the angle-bracket placeholders with your project scope and the selected peer's session key.
+
+**Brief the Codex session:**
+
+```text
+We are working on <project and task>. You are responsible for implementation.
+Your reviewer is the Claude Code chat registered as agent "claude",
+session <Claude session key>.
+
+Use Agent Relay to request reviews and exchange findings with that session.
+Address requests with bus_send(to="claude", session=<Claude session key>).
+For incoming requests, provide a substantive answer with kind="answer" and
+thread_id set to the incoming message ID. Keep replies directed to that peer.
+Continue the agreed work when its feedback arrives, within the existing scope
+and approval requirements. Do not send acknowledgement-only replies.
+If the target session has changed or is ambiguous, confirm it before sending.
+```
+
+**Brief the Claude Code session:**
+
+```text
+We are working on <project and task>. You are responsible for reviewing changes.
+Your collaborator is the Codex chat registered as agent "codex",
+session <Codex session key>.
+
+Use Agent Relay to receive review requests and return actionable findings.
+Address requests with bus_send(to="codex", session=<Codex session key>).
+For incoming requests, provide a substantive answer with kind="answer" and
+thread_id set to the incoming message ID. Keep replies directed to that peer.
+Handle follow-up messages within the agreed scope and approval requirements.
+Do not send acknowledgement-only replies. If the target session has changed
+or is ambiguous, confirm it before sending.
+```
+
+These are example instructions, not executable commands. Include the relevant request details in each message: the two assistants retain separate conversation contexts. The briefing does not save a routing rule automatically; the assistant must keep addressing the intended session. Recheck session keys when starting replacement chats.
+
+Once both sessions are briefed and the exchange below passes, they can send requests, act on incoming messages, and reply autonomously through their existing subscriptions, without model API credits. Normal subscription limits still apply.
+
 ### Smoke test and rollback
 
-1. Open one disposable Claude chat and one disposable Codex chat.
-2. Send a harmless message to each, then a reply with the original `thread_id`.
-3. Confirm the chosen chat, delivery receipt, and visible response agree.
+1. Open one disposable Claude chat and one disposable Codex chat, then brief them as above.
+2. Ask Codex to send Claude a harmless review request using the selected session key. Let Claude answer with the original `thread_id`, without you forwarding the message or pressing Send in Claude's panel.
+3. Confirm the request reached the chosen Claude chat and its answer reached the chosen Codex chat. Check the delivery receipts and visible responses, then repeat in the other direction.
 4. Repeat while a harmless turn is active, then with the target chat closed.
 5. Verify the burst brake and queue behaviour before operational use.
 

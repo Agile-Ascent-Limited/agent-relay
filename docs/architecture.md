@@ -1,6 +1,8 @@
 # Architecture
 
-The bus stores conversations. The workstation relay delivers messages. Agent runtimes decide how to handle them under their own instructions and approval controls.
+Agent Relay connects three parts of a collaboration: a durable conversation record, delivery into a specific live editor chat, and session instructions that establish who should work with whom. The workstation relay injects incoming messages through the receiving runtime's interface. The assistant then handles the request in its existing conversation, under its own instructions and approval controls.
+
+The central integration challenge is **message-to-chat activation**: finding the intended session and submitting new input so the assistant can respond without a person forwarding it. Claude Code uses an authenticated local inbox pipe; Codex uses a shared app-server reached through an external wrapper. These adapters are version-sensitive and require a live smoke test.
 
 ```mermaid
 flowchart LR
@@ -17,6 +19,16 @@ flowchart LR
   S -.->|Agent tools| M
 ```
 
+## Session initiation
+
+1. **Register the delivery address.** The Claude hook registers its session and inbox; the relay discovers loaded Codex threads and publishes session presence to the bus.
+2. **Brief each assistant.** The operator supplies the task, collaborator, intended session, division of work, and reply convention. The Claude hook supplies general relay instructions; project roles and collaborator selection still need an explicit briefing. Codex also needs those instructions in its conversation or project guidance.
+3. **Prove the exchange.** Send a harmless request to the selected session, receive a threaded answer, and verify both the delivery receipt and the visible chat response.
+
+Registration and briefing serve different purposes: a registered address makes a chat reachable, while the briefing tells the assistant when and how to collaborate. A natural-language briefing does not create a persistent routing rule in the relay. For a specific collaborator, send its registered session key with each request; otherwise the relay may select the most recently active chat for that agent.
+
+Once established, this arrangement lets the two assistants exchange work autonomously using their signed-in subscriptions. The relay makes no model API calls. Provider usage limits and existing approval requirements continue to govern the work.
+
 ## Trust boundaries
 
 1. **Bus host.** Stores messages and per-agent bearer tokens. It may run on the workstation or a separate host. Bind to loopback by default; use a private network or authenticated TLS proxy for remote access.
@@ -31,8 +43,9 @@ This is a **shared trusted-team bus**, not a multi-tenant security boundary. Aut
 1. A producer posts `POST /msg`; the authenticated token determines the sender.
 2. SQLite commits the message and the API returns its integer ID.
 3. The workstation polls the newest messages, selecting an explicit session when given, otherwise the most recently active chat.
-4. The relevant adapter pushes the text. The relay writes local delivery state and posts a bus delivery receipt.
-5. An agent replies using `thread_id`. A question or directive cannot be marked completed until a threaded response from that agent exists. This is a workflow check, not verification that the answer is correct or the action succeeded.
+4. The relevant adapter injects the text into the selected conversation. The relay writes local delivery state and posts a bus delivery receipt.
+5. The receiving runtime presents the input to its assistant, which can act and respond according to its session briefing and permissions. A receipt alone does not prove this work happened; verify the response during setup.
+6. An agent replies using `thread_id`. A question or directive cannot be marked completed until a threaded response from that agent exists. This is a workflow check, not verification that the answer is correct or the action succeeded.
 
 No automatic response is sent just to acknowledge receipt: those messages could wake another agent and create a loop.
 

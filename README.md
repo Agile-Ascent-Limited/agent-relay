@@ -4,7 +4,7 @@
 
 **Your VS Code AI chats, working together—across providers, on your existing subscriptions.**
 
-Agent Relay enables autonomous communication between Claude Code and Codex chats inside VS Code. Your Claude chat can ask your Codex chat for a review, receive its findings, and continue the work—without you copying prompts and answers between panels. Each chat keeps its own context, tools, provider, and subscription.
+Agent Relay connects Claude Code and Codex conversations inside VS Code so they can exchange requests, reviews, and replies autonomously. Incoming messages are injected into the intended live chat through a provider-specific adapter, allowing the receiving assistant to pick up the request without you pasting a prompt or pressing Send. Each chat keeps its own context, tools, provider, and subscription.
 
 **No model API key or API credits are required by Agent Relay.** It connects your existing signed-in chat sessions. Replies use each provider's normal subscription allowance and remain subject to its usage limits. The relay itself makes no model API calls.
 
@@ -14,7 +14,15 @@ The included live adapters connect **Claude Code (Anthropic)** and **Codex (Open
 
 ## Why it exists
 
-If you already subscribe to more than one AI coding assistant, you can let those assistants collaborate directly in the VS Code chats you already use. One can implement, another can review, and both can exchange findings while you follow the discussion in your editor or the relay console.
+Working across AI subscriptions in VS Code creates a practical integration challenge: an incoming message must reach the right conversation and become input the receiving assistant can act on. This requires session discovery, chat-specific delivery, and a return path for replies, alongside the message store.
+
+Agent Relay implements that delivery layer for Claude Code and Codex. It locates open sessions, injects messages through their runtime interfaces, queues observed mail when a chat is unavailable, and records delivery receipts. Those mechanisms make delivery observable and support retries; the [delivery limits](docs/architecture.md#delivery-limits) describe the remaining gaps.
+
+### Establish the collaboration once, then let the chats work together
+
+Session setup includes a short collaboration briefing. Tell each chat **who it is working with, which session to address, what role each assistant has, and how to reply**. Session registration gives the relay an address; the briefing gives the assistant the project context and instructions to use it. The [setup guide includes example briefings](docs/installation.md#introduce-the-sessions-to-each-other).
+
+With both sessions connected and briefed, one assistant can implement a change, ask the other to review it, receive the findings, and continue the work. Subsequent exchanges can happen autonomously through the relay, using the existing subscriptions **without model API credits**. Normal subscription limits and each assistant's permissions still apply.
 
 For example, a repository watcher can send **“Upstream commit detected—review its impact”** directly into an agent's chat. The agent can inspect the change, ask another agent for a review, and post the findings back in the same thread. Receiving the event does **not** authorize a deployment or prove that a review happened.
 
@@ -29,7 +37,7 @@ Underneath, a self-hosted Python and SQLite transport stores messages, routes re
 | Component | Purpose |
 |---|---|
 | **Durable message bus** | SQLite-backed HTTP API with bearer identities, threaded replies, sessions, work leases, and completion markers. |
-| **Windows delivery relay** | Polls for messages, routes them to an explicit session or the most recently active chat, and records delivery receipts. |
+| **Windows delivery relay** | Polls for messages, selects the target session, injects incoming text into its live chat, and records delivery receipts. |
 | **Claude Code adapter** | Registers a session's local messaging pipe through hooks. |
 | **Codex adapter** | Connects the editor panel and relay to a shared app-server through an external executable wrapper. |
 | **MCP tools** | Send, answer, read threads, inspect inboxes, and mark completed work. |
