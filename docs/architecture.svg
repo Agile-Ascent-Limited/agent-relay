@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="712" viewBox="0 0 1200 712" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="724" viewBox="0 0 1200 724" role="img" aria-labelledby="title desc">
 <title id="title">Agent Relay: Claude and Codex review each other's work</title>
-<desc id="desc">A Claude Code chat (Anthropic) and a Codex chat (OpenAI) both build and both review. Claude asks Codex to review its change, and Codex asks Claude to review its own. Each message goes through the sender's MCP tools to the self-hosted message bus; the Windows relay delivers it only to the addressed session of the other vendor. Each fixes the other's findings until both sign off. The relay makes no model API calls; each chat uses its existing subscription.</desc>
+<desc id="desc">Inside VS Code, a Claude Code chat (Anthropic) and a Codex chat (OpenAI) both build and both review. Claude asks Codex to review its change, and Codex asks Claude to review its own. Each message goes through the sender's MCP tools to the self-hosted message bus; the Windows relay delivers it only into the addressed VS Code chat of the other vendor. Each fixes the other's findings until both sign off. The relay makes no model API calls; each chat uses its existing subscription.</desc>
 <style>
 :root{--bg:#ffffff;--frame:#d1d9e0;--card:#f6f8fa;--border:#d1d9e0;--text:#1f2328;--muted:#59636e;--line:#8c959f;--claude:#bc5a2f;--codex:#0b7a5e;--badge_text:#ffffff;--bubble:#ffffff}
 text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;fill:var(--text)}
@@ -13,6 +13,7 @@ text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 .s{font-size:13px;fill:var(--muted)}
 .cap{font-size:13px;font-weight:600}
 .prov{font-size:14px;font-weight:600}
+.vs{font-size:13px;font-weight:700;letter-spacing:.5px}
 .chat{font-size:14px}
 .step{font-size:15px;font-weight:600}
 .badge{font-size:14px;font-weight:700;fill:var(--badge_text)}
@@ -28,31 +29,35 @@ text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 <marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10Z" style="fill:var(--codex)"/></marker>
 <marker id="ao" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10Z" style="fill:var(--claude)"/></marker>
 </defs>
-<rect x="0.75" y="0.75" width="1198.5" height="710.5" rx="18" style="fill:var(--bg);stroke:var(--frame);stroke-width:1.5"/>
+<rect x="0.75" y="0.75" width="1198.5" height="722.5" rx="18" style="fill:var(--bg);stroke:var(--frame);stroke-width:1.5"/>
 <text x="48" y="50" class="brand">AGILE ASCENT LIMITED</text>
 <text x="48" y="94" class="title">Agent Relay</text>
-<text x="48" y="128" class="sub">Claude and Codex check each other's work: different vendors, different models, different blind spots, one thread.</text>
-<text x="48" y="184" class="col">ANTHROPIC</text>
+<text x="48" y="128" class="sub">In VS Code, Claude and Codex check each other's work: different vendors, different models, different blind spots.</text>
+<text x="48" y="184" class="col">ANTHROPIC · IN VS CODE</text>
 <text x="424" y="184" class="col">SELF-HOSTED RELAY</text>
-<text x="874" y="184" class="col">OPENAI</text>
-<rect x="48" y="206" width="278" height="270" rx="12" class="card" style="stroke:var(--claude);stroke-width:2.5"/>
-<circle cx="70" cy="231" r="6" style="fill:var(--claude)"/>
-<text x="84" y="236"><tspan class="prov" style="fill:var(--claude)">Claude Code</tspan><tspan class="s"> · Anthropic</tspan></text>
-<text x="70" y="264" class="h">Builds and reviews</text>
-<text x="70" y="286" class="b">Reviews Codex's work</text>
-<rect x="96" y="302" width="214" height="30" rx="9" style="fill:var(--claude);fill-opacity:.14;stroke:var(--claude);stroke-opacity:.5"/><text x="108" y="322" class="chat">Review my change, Codex</text>
-<rect x="64" y="344" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="76" y="364" class="chat">Codex: 2 blockers found</text>
-<rect x="64" y="386" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="76" y="406" class="chat">Codex: review my change</text>
-<rect x="96" y="428" width="214" height="30" rx="9" style="fill:var(--claude);fill-opacity:.14;stroke:var(--claude);stroke-opacity:.5"/><text x="108" y="448" class="chat">Found 1 issue: no test</text>
-<rect x="874" y="206" width="278" height="270" rx="12" class="card" style="stroke:var(--codex);stroke-width:2.5"/>
-<circle cx="896" cy="231" r="6" style="fill:var(--codex)"/>
-<text x="910" y="236"><tspan class="prov" style="fill:var(--codex)">Codex</tspan><tspan class="s"> · OpenAI</tspan></text>
-<text x="896" y="264" class="h">Builds and reviews</text>
-<text x="896" y="286" class="b">Reviews Claude's work</text>
-<rect x="890" y="302" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="902" y="322" class="chat">Claude: review my change</text>
-<rect x="922" y="344" width="214" height="30" rx="9" style="fill:var(--codex);fill-opacity:.14;stroke:var(--codex);stroke-opacity:.5"/><text x="934" y="364" class="chat">2 blockers found</text>
-<rect x="922" y="386" width="214" height="30" rx="9" style="fill:var(--codex);fill-opacity:.14;stroke:var(--codex);stroke-opacity:.5"/><text x="934" y="406" class="chat">Review my change, Claude</text>
-<rect x="890" y="428" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="902" y="448" class="chat">Claude: 1 issue, no test</text>
+<text x="874" y="184" class="col">OPENAI · IN VS CODE</text>
+<rect x="48" y="206" width="278" height="296" rx="12" class="card" style="stroke:var(--claude);stroke-width:2.5"/>
+<text x="64" y="226" class="vs">VS Code</text><text x="310" y="226" class="s" text-anchor="end">Claude Code chat panel</text>
+<path d="M49 236H324" style="stroke:var(--border);stroke-width:1.5"/>
+<circle cx="70" cy="257" r="6" style="fill:var(--claude)"/>
+<text x="84" y="262"><tspan class="prov" style="fill:var(--claude)">Claude Code</tspan><tspan class="s"> · Anthropic</tspan></text>
+<text x="70" y="290" class="h">Builds and reviews</text>
+<text x="70" y="312" class="b">Reviews Codex's work</text>
+<rect x="96" y="328" width="214" height="30" rx="9" style="fill:var(--claude);fill-opacity:.14;stroke:var(--claude);stroke-opacity:.5"/><text x="108" y="348" class="chat">Review my change, Codex</text>
+<rect x="64" y="370" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="76" y="390" class="chat">Codex: 2 blockers found</text>
+<rect x="64" y="412" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="76" y="432" class="chat">Codex: review my change</text>
+<rect x="96" y="454" width="214" height="30" rx="9" style="fill:var(--claude);fill-opacity:.14;stroke:var(--claude);stroke-opacity:.5"/><text x="108" y="474" class="chat">Found 1 issue: no test</text>
+<rect x="874" y="206" width="278" height="296" rx="12" class="card" style="stroke:var(--codex);stroke-width:2.5"/>
+<text x="890" y="226" class="vs">VS Code</text><text x="1136" y="226" class="s" text-anchor="end">Codex chat panel</text>
+<path d="M875 236H1150" style="stroke:var(--border);stroke-width:1.5"/>
+<circle cx="896" cy="257" r="6" style="fill:var(--codex)"/>
+<text x="910" y="262"><tspan class="prov" style="fill:var(--codex)">Codex</tspan><tspan class="s"> · OpenAI</tspan></text>
+<text x="896" y="290" class="h">Builds and reviews</text>
+<text x="896" y="312" class="b">Reviews Claude's work</text>
+<rect x="890" y="328" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="902" y="348" class="chat">Claude: review my change</text>
+<rect x="922" y="370" width="214" height="30" rx="9" style="fill:var(--codex);fill-opacity:.14;stroke:var(--codex);stroke-opacity:.5"/><text x="934" y="390" class="chat">2 blockers found</text>
+<rect x="922" y="412" width="214" height="30" rx="9" style="fill:var(--codex);fill-opacity:.14;stroke:var(--codex);stroke-opacity:.5"/><text x="934" y="432" class="chat">Review my change, Claude</text>
+<rect x="890" y="454" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="902" y="474" class="chat">Claude: 1 issue, no test</text>
 <rect x="424" y="214" width="352" height="92" rx="12" class="card" style="stroke:var(--border);stroke-width:1.5"/>
 <text x="446" y="250" class="h">Message bus</text>
 <text x="446" y="276" class="b">Threads · sessions · receipts</text>
@@ -62,9 +67,9 @@ text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 <text x="612" y="333" class="s">polls every second</text>
 <rect x="424" y="358" width="352" height="92" rx="12" class="card" style="stroke:var(--border);stroke-width:1.5"/>
 <text x="446" y="394" class="h">Windows relay</text>
-<text x="446" y="420" class="b">Delivers to the addressed session</text>
-<text x="600" y="478" class="s" text-anchor="middle">No model calls · runs on a PC, VM, server or Pi</text>
-<text x="600" y="498" class="s" text-anchor="middle">You and your watchers can post to the same threads</text>
+<text x="446" y="420" class="b">Delivers into the addressed VS Code chat</text>
+<text x="600" y="482" class="s" text-anchor="middle">No model calls · runs on a PC, VM, server or Pi</text>
+<text x="600" y="502" class="s" text-anchor="middle">You and your watchers can post to the same threads</text>
 <path d="M326 300H372V262H416" class="o"/>
 <path d="M776 404H866" class="o"/>
 <path d="M874 300H828V262H784" class="g"/>
@@ -79,20 +84,20 @@ text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 <circle r="6" class="dot" style="fill:var(--claude)"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.22;0.32;1" keyPoints="0;0;1;1" path="M780 404H864"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.22;0.32;1" values="0;1;0;0"/></circle>
 <circle r="6" class="dot" style="fill:var(--codex)"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.45;0.57;1" keyPoints="0;0;1;1" path="M870 300H828V262H786"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.45;0.57;1" values="0;1;0;0"/></circle>
 <circle r="6" class="dot" style="fill:var(--codex)"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.64;0.74;1" keyPoints="0;0;1;1" path="M420 404H336"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.64;0.74;1" values="0;1;0;0"/></circle>
-<rect x="48" y="522" width="1104" height="100" rx="12" class="card" style="stroke:var(--border);stroke-width:1.5"/>
-<text x="72" y="552" class="col">TWO-WAY REVIEW</text>
-<circle cx="85" cy="586" r="13" style="fill:var(--claude)"/><text x="85" y="591" class="badge" text-anchor="middle">1</text>
-<text x="108" y="581" class="step">Claude writes a change</text>
-<text x="108" y="603" class="b">and Codex reviews it</text>
-<circle cx="357" cy="586" r="13" style="fill:var(--codex)"/><text x="357" y="591" class="badge" text-anchor="middle">2</text>
-<text x="380" y="581" class="step">Codex writes a change</text>
-<text x="380" y="603" class="b">and Claude reviews it</text>
-<circle cx="629" cy="586" r="13" style="fill:var(--text)"/><text x="629" y="591" class="badge" text-anchor="middle">3</text>
-<text x="652" y="581" class="step">Each fixes the findings</text>
-<text x="652" y="603" class="b">and asks for a re-review</text>
-<circle cx="901" cy="586" r="13" style="fill:var(--text)"/><text x="901" y="591" class="badge" text-anchor="middle">4</text>
-<text x="924" y="581" class="step">Both sign off</text>
-<text x="924" y="603" class="b">and you decide to ship</text>
-<text x="48" y="660" class="s">Each message names the session it is for, so it lands in the chat that already holds the context. The relay makes no model API calls;</text>
-<text x="48" y="680" class="s">each chat uses its existing subscription. A delivery receipt proves where a message went, not that a review is right.</text>
+<rect x="48" y="534" width="1104" height="100" rx="12" class="card" style="stroke:var(--border);stroke-width:1.5"/>
+<text x="72" y="564" class="col">TWO-WAY REVIEW</text>
+<circle cx="85" cy="598" r="13" style="fill:var(--claude)"/><text x="85" y="603" class="badge" text-anchor="middle">1</text>
+<text x="108" y="593" class="step">Claude writes a change</text>
+<text x="108" y="615" class="b">and Codex reviews it</text>
+<circle cx="357" cy="598" r="13" style="fill:var(--codex)"/><text x="357" y="603" class="badge" text-anchor="middle">2</text>
+<text x="380" y="593" class="step">Codex writes a change</text>
+<text x="380" y="615" class="b">and Claude reviews it</text>
+<circle cx="629" cy="598" r="13" style="fill:var(--text)"/><text x="629" y="603" class="badge" text-anchor="middle">3</text>
+<text x="652" y="593" class="step">Each fixes the findings</text>
+<text x="652" y="615" class="b">and asks for a re-review</text>
+<circle cx="901" cy="598" r="13" style="fill:var(--text)"/><text x="901" y="603" class="badge" text-anchor="middle">4</text>
+<text x="924" y="593" class="step">Both sign off</text>
+<text x="924" y="615" class="b">and you decide to ship</text>
+<text x="48" y="672" class="s">Each message names the session it is for, so it lands in the VS Code chat that already holds the context. The relay makes no model API calls;</text>
+<text x="48" y="692" class="s">each chat uses its existing subscription. A delivery receipt proves where a message went, not that a review is right.</text>
 </svg>

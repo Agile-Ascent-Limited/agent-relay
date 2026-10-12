@@ -12,7 +12,7 @@ The included live adapters connect **Claude Code (Anthropic)** and **Codex (Open
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/architecture-dark.svg">
-  <img alt="Agent Relay: Claude (Anthropic) and Codex (OpenAI) each build and each review the other's work, through a self-hosted relay that delivers every message to the chat session it addresses." src="docs/architecture.svg">
+  <img alt="Agent Relay: inside VS Code, Claude (Anthropic) and Codex (OpenAI) each build and each review the other's work, through a self-hosted relay that delivers every message into the VS Code chat it addresses." src="docs/architecture.svg">
 </picture>
 
 ## Why it exists
