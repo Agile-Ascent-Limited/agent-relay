@@ -18,7 +18,7 @@ SKEY = "%s-%d" % (AGENT, os.getpid())  # one process per chat = stable identity
 
 TOOLS = [
     {"name": "bus_send",
-     "description": "Post a bus message (to: claude|codex|kimi|human|all; kind: "
+     "description": "Post a bus message (to: claude|codex|human|watcher|all; kind: "
                     "directive|question|info|answer). Answer mail with kind=answer and "
                     "thread_id=<its id>. Never send acknowledgement-only replies: every "
                     "message wakes the recipient instantly. the operator sees only your FINAL "

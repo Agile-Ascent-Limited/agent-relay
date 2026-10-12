@@ -39,7 +39,7 @@ NOTE = (
 NO_INBOX = (" NOTE: at startup this chat had no relay inbox yet. It often binds a moment later "
             "(feature-flag refresh); if so, you will be told 'relay inbox now active' on the next "
             "prompt and mail is pushed from then on. Until then (or if it never binds: needs the "
-            "VS Code panel, or CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 on Claude Code >= 2.1.234) "
+            "a compatible Claude Code runtime exposing its experimental messaging pipe) "
             "check GET %s/inbox/claude?unread=1 with the token when asked." % BUS)
 LATE_BIND = ("<agent-relay> Relay inbox now active for this chat: bus mail is pushed straight in "
              "from now on (ignore the earlier 'no relay inbox yet' note).</agent-relay>")

@@ -45,7 +45,7 @@ RECENT = 50              # newest messages re-read every refresh (catches new AC
 FULL_EVERY = 120         # seconds between full re-reads of the last FULL messages
 FULL = 400
 # In-memory copy of the conversation, refreshed from the bus every 2 s by one background
-# thread; a full 400-message read costs seconds on the Pi, a 50-message read is instant.
+# thread; smaller incremental reads reduce work between full refreshes.
 STORE = {"msgs": {}, "dels": [], "sessions": [], "at": 0.0, "full_at": 0.0}
 _lock = threading.Lock()
 

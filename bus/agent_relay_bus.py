@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Agent Relay bus — durable async message store for the agent fleet.
+"""Agent Relay bus — durable async message store for registered chat peers.
 
 Agent Relay (Windows, agent-relay/relay.py) pushes new mail from here into the open
 Claude/Codex chats; this server only stores, authenticates, filters and mirrors.
