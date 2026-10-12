@@ -1,80 +1,98 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
-  <title id="title">Agent Relay: autonomous communication between VS Code AI chats</title>
-  <desc id="desc">Setup registers each chat and briefs both assistants on their roles, collaborators and reply rules. People, automation and agent tools send authenticated HTTP messages to a durable SQLite bus. A Windows relay polls it, selects the intended session and injects messages into Claude Code inbox pipes and a shared Codex app-server. Delivery receipts return to the bus. The bus may run on a PC, VM, server or Raspberry Pi.</desc>
-  <defs>
-    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#142539"/></linearGradient>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5fe0c0"/></marker>
-    <marker id="back" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#92a9c3"/></marker>
-    <style>
-      text{font-family:Segoe UI,Arial,sans-serif;fill:#edf4fc}
-      .label{font-size:13px;letter-spacing:2px;fill:#8daac6;font-weight:600}
-      .heading{font-size:24px;font-weight:650}
-      .body{font-size:17px;fill:#b8cade}
-      .small{font-size:14px;fill:#b8cade}
-      .box{fill:#16283d;stroke:#35516d;stroke-width:1.5}
-      .line{fill:none;stroke:#5fe0c0;stroke-width:2.5;marker-end:url(#arrow)}
-    </style>
-  </defs>
-  <rect width="1400" height="800" rx="24" fill="url(#bg)"/>
-  <text x="52" y="49" class="label">AGILE ASCENT LIMITED</text>
-  <text x="50" y="105" font-size="44" font-weight="700">Agent Relay</text>
-  <text x="52" y="140" class="body">Autonomous chat-to-chat communication across AI providers in VS Code.</text>
-  <text x="52" y="174" class="small">Setup: register each chat · identify its collaborator · agree roles and reply rules</text>
-  <rect x="1128" y="53" width="218" height="36" rx="18" fill="#123d3c"/>
-  <text x="1237" y="77" text-anchor="middle" font-size="14" fill="#5fe0c0">NO API CREDITS REQUIRED</text>
-
-  <text x="52" y="206" class="label">PRODUCERS</text>
-  <rect x="50" y="226" width="240" height="310" rx="16" class="box"/>
-  <text x="73" y="268" class="heading">People</text>
-  <text x="73" y="296" class="body">Local web console</text>
-  <path d="M73 317H268" stroke="#35516d"/>
-  <text x="73" y="350" class="heading">Automation</text>
-  <text x="73" y="378" class="body">Watchers and scripts</text>
-  <path d="M73 402H268" stroke="#35516d"/>
-  <text x="73" y="438" class="heading">Agent tools</text>
-  <text x="73" y="467" class="body">MCP / HTTP replies</text>
-  <text x="73" y="508" class="small">Bearer-authenticated JSON</text>
-
-  <text x="350" y="206" class="label">DURABLE TRANSPORT</text>
-  <rect x="350" y="276" width="250" height="210" rx="16" class="box"/>
-  <text x="375" y="318" class="heading">Message bus</text>
-  <text x="375" y="350" class="body">Threads · sessions · receipts</text>
-  <rect x="375" y="378" width="200" height="53" rx="9" fill="#0b1b2a" stroke="#35516d"/>
-  <text x="475" y="411" text-anchor="middle" font-size="19">SQLite storage</text>
-  <text x="375" y="461" class="small">Python standard library</text>
-  <path d="M290 366H342" class="line"/>
-
-  <text x="670" y="206" class="label">WORKSTATION DELIVERY</text>
-  <rect x="670" y="276" width="240" height="210" rx="16" class="box"/>
-  <text x="694" y="318" class="heading">Windows relay</text>
-  <text x="694" y="351" class="body">Select the target session</text>
-  <text x="694" y="383" class="body">Inject into its live chat</text>
-  <text x="694" y="415" class="body">Queue mail · limit bursts</text>
-  <text x="694" y="461" class="small">No model calls in delivery loop</text>
-  <path d="M600 366H662" class="line"/>
-  <text x="635" y="344" text-anchor="middle" class="small">poll</text>
-  <path d="M789 486V574H475V494" stroke="#92a9c3" stroke-width="2" stroke-dasharray="6 6" fill="none" marker-end="url(#back)"/>
-  <text x="634" y="600" text-anchor="middle" class="small">Delivery receipts + session presence</text>
-
-  <text x="990" y="206" class="label">YOUR VS CODE CHATS</text>
-  <rect x="990" y="226" width="355" height="133" rx="16" class="box"/>
-  <text x="1015" y="267" class="heading">Claude Code</text>
-  <text x="1015" y="300" class="body">Authenticated local inbox pipe</text>
-  <text x="1015" y="328" class="small">Your existing Claude subscription</text>
-  <path d="M910 310H944V292H982" class="line"/>
-
-  <rect x="990" y="397" width="355" height="161" rx="16" class="box"/>
-  <text x="1015" y="438" class="heading">Codex</text>
-  <text x="1015" y="470" class="body">Shared app-server · turn/start</text>
-  <text x="1015" y="500" class="small">Your existing ChatGPT subscription</text>
-  <text x="1015" y="530" class="small">Experimental, version-sensitive adapter</text>
-  <path d="M910 426H944V450H982" class="line"/>
-
-  <rect x="50" y="647" width="1295" height="108" rx="14" fill="#0c1b2c" stroke="#29425c"/>
-  <text x="74" y="681" font-size="18" font-weight="600">Use the subscriptions you already have</text>
-  <text x="74" y="713" class="body">Normal provider usage limits apply. No model in the relay loop.</text>
-  <path d="M677 670V731" stroke="#29425c"/>
-  <text x="707" y="681" font-size="18" font-weight="600">Delivery is not completion</text>
-  <text x="707" y="713" class="body">Agent actions retain their own permissions and approvals.</text>
-  <text x="52" y="782" font-size="12" fill="#8daac6">Reference architecture · Shared trusted-team bus · Remote access requires a protected transport</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="712" viewBox="0 0 1200 712" role="img" aria-labelledby="title desc">
+<title id="title">Agent Relay: Claude and Codex review each other's work</title>
+<desc id="desc">A Claude Code chat (Anthropic) and a Codex chat (OpenAI) both build and both review. Claude asks Codex to review its change, and Codex asks Claude to review its own. Each message goes through the sender's MCP tools to the self-hosted message bus; the Windows relay delivers it only to the addressed session of the other vendor. Each fixes the other's findings until both sign off. The relay makes no model API calls; each chat uses its existing subscription.</desc>
+<style>
+:root{--bg:#ffffff;--frame:#d1d9e0;--card:#f6f8fa;--border:#d1d9e0;--text:#1f2328;--muted:#59636e;--line:#8c959f;--claude:#bc5a2f;--codex:#0b7a5e;--badge_text:#ffffff;--bubble:#ffffff}
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;fill:var(--text)}
+.brand{font-size:13px;letter-spacing:2px;font-weight:600;fill:var(--muted)}
+.title{font-size:34px;font-weight:700}
+.sub{font-size:18px;fill:var(--muted)}
+.col{font-size:13px;letter-spacing:2px;font-weight:600;fill:var(--muted)}
+.h{font-size:21px;font-weight:650}
+.b{font-size:15px;fill:var(--muted)}
+.s{font-size:13px;fill:var(--muted)}
+.cap{font-size:13px;font-weight:600}
+.prov{font-size:14px;font-weight:600}
+.chat{font-size:14px}
+.step{font-size:15px;font-weight:600}
+.badge{font-size:14px;font-weight:700;fill:var(--badge_text)}
+.card{fill:var(--card)}
+.n{fill:none;stroke:var(--line);stroke-width:2;marker-end:url(#an)}
+.g{fill:none;stroke:var(--codex);stroke-width:3;marker-end:url(#ag)}
+.o{fill:none;stroke:var(--claude);stroke-width:3;marker-end:url(#ao)}
+.dot{opacity:0}
+@media (prefers-reduced-motion:reduce){.dot{display:none}}
+</style>
+<defs>
+<marker id="an" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10Z" style="fill:var(--line)"/></marker>
+<marker id="ag" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10Z" style="fill:var(--codex)"/></marker>
+<marker id="ao" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0L10 5L0 10Z" style="fill:var(--claude)"/></marker>
+</defs>
+<rect x="0.75" y="0.75" width="1198.5" height="710.5" rx="18" style="fill:var(--bg);stroke:var(--frame);stroke-width:1.5"/>
+<text x="48" y="50" class="brand">AGILE ASCENT LIMITED</text>
+<text x="48" y="94" class="title">Agent Relay</text>
+<text x="48" y="128" class="sub">Claude and Codex check each other's work: different vendors, different models, different blind spots, one thread.</text>
+<text x="48" y="184" class="col">ANTHROPIC</text>
+<text x="424" y="184" class="col">SELF-HOSTED RELAY</text>
+<text x="874" y="184" class="col">OPENAI</text>
+<rect x="48" y="206" width="278" height="270" rx="12" class="card" style="stroke:var(--claude);stroke-width:2.5"/>
+<circle cx="70" cy="231" r="6" style="fill:var(--claude)"/>
+<text x="84" y="236"><tspan class="prov" style="fill:var(--claude)">Claude Code</tspan><tspan class="s"> · Anthropic</tspan></text>
+<text x="70" y="264" class="h">Builds and reviews</text>
+<text x="70" y="286" class="b">Reviews Codex's work</text>
+<rect x="96" y="302" width="214" height="30" rx="9" style="fill:var(--claude);fill-opacity:.14;stroke:var(--claude);stroke-opacity:.5"/><text x="108" y="322" class="chat">Review my change, Codex</text>
+<rect x="64" y="344" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="76" y="364" class="chat">Codex: 2 blockers found</text>
+<rect x="64" y="386" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="76" y="406" class="chat">Codex: review my change</text>
+<rect x="96" y="428" width="214" height="30" rx="9" style="fill:var(--claude);fill-opacity:.14;stroke:var(--claude);stroke-opacity:.5"/><text x="108" y="448" class="chat">Found 1 issue: no test</text>
+<rect x="874" y="206" width="278" height="270" rx="12" class="card" style="stroke:var(--codex);stroke-width:2.5"/>
+<circle cx="896" cy="231" r="6" style="fill:var(--codex)"/>
+<text x="910" y="236"><tspan class="prov" style="fill:var(--codex)">Codex</tspan><tspan class="s"> · OpenAI</tspan></text>
+<text x="896" y="264" class="h">Builds and reviews</text>
+<text x="896" y="286" class="b">Reviews Claude's work</text>
+<rect x="890" y="302" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="902" y="322" class="chat">Claude: review my change</text>
+<rect x="922" y="344" width="214" height="30" rx="9" style="fill:var(--codex);fill-opacity:.14;stroke:var(--codex);stroke-opacity:.5"/><text x="934" y="364" class="chat">2 blockers found</text>
+<rect x="922" y="386" width="214" height="30" rx="9" style="fill:var(--codex);fill-opacity:.14;stroke:var(--codex);stroke-opacity:.5"/><text x="934" y="406" class="chat">Review my change, Claude</text>
+<rect x="890" y="428" width="214" height="30" rx="9" style="fill:var(--bubble);stroke:var(--border)"/><text x="902" y="448" class="chat">Claude: 1 issue, no test</text>
+<rect x="424" y="214" width="352" height="92" rx="12" class="card" style="stroke:var(--border);stroke-width:1.5"/>
+<text x="446" y="250" class="h">Message bus</text>
+<text x="446" y="276" class="b">Threads · sessions · receipts</text>
+<rect x="672" y="236" width="84" height="34" rx="8" style="fill:var(--bg);stroke:var(--border);stroke-width:1.5"/>
+<text x="714" y="258" class="cap" text-anchor="middle">SQLite</text>
+<path d="M600 306V350" class="n"/>
+<text x="612" y="333" class="s">polls every second</text>
+<rect x="424" y="358" width="352" height="92" rx="12" class="card" style="stroke:var(--border);stroke-width:1.5"/>
+<text x="446" y="394" class="h">Windows relay</text>
+<text x="446" y="420" class="b">Delivers to the addressed session</text>
+<text x="600" y="478" class="s" text-anchor="middle">No model calls · runs on a PC, VM, server or Pi</text>
+<text x="600" y="498" class="s" text-anchor="middle">You and your watchers can post to the same threads</text>
+<path d="M326 300H372V262H416" class="o"/>
+<path d="M776 404H866" class="o"/>
+<path d="M874 300H828V262H784" class="g"/>
+<path d="M424 404H334" class="g"/>
+<text x="336" y="324" class="cap" style="fill:var(--claude)">from Claude</text>
+<text x="822" y="396" class="cap" text-anchor="middle" style="fill:var(--claude)">to Codex</text>
+<text x="864" y="324" class="cap" text-anchor="end" style="fill:var(--codex)">from Codex</text>
+<text x="379" y="396" class="cap" text-anchor="middle" style="fill:var(--codex)">to Claude</text>
+<text x="372" y="242" class="s" text-anchor="middle">via MCP</text>
+<text x="828" y="242" class="s" text-anchor="middle">via MCP</text>
+<circle r="6" class="dot" style="fill:var(--claude)"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.03;0.15;1" keyPoints="0;0;1;1" path="M330 300H372V262H414"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.03;0.15;1" values="0;1;0;0"/></circle>
+<circle r="6" class="dot" style="fill:var(--claude)"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.22;0.32;1" keyPoints="0;0;1;1" path="M780 404H864"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.22;0.32;1" values="0;1;0;0"/></circle>
+<circle r="6" class="dot" style="fill:var(--codex)"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.45;0.57;1" keyPoints="0;0;1;1" path="M870 300H828V262H786"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.45;0.57;1" values="0;1;0;0"/></circle>
+<circle r="6" class="dot" style="fill:var(--codex)"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.64;0.74;1" keyPoints="0;0;1;1" path="M420 404H336"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.64;0.74;1" values="0;1;0;0"/></circle>
+<rect x="48" y="522" width="1104" height="100" rx="12" class="card" style="stroke:var(--border);stroke-width:1.5"/>
+<text x="72" y="552" class="col">TWO-WAY REVIEW</text>
+<circle cx="85" cy="586" r="13" style="fill:var(--claude)"/><text x="85" y="591" class="badge" text-anchor="middle">1</text>
+<text x="108" y="581" class="step">Claude writes a change</text>
+<text x="108" y="603" class="b">and Codex reviews it</text>
+<circle cx="357" cy="586" r="13" style="fill:var(--codex)"/><text x="357" y="591" class="badge" text-anchor="middle">2</text>
+<text x="380" y="581" class="step">Codex writes a change</text>
+<text x="380" y="603" class="b">and Claude reviews it</text>
+<circle cx="629" cy="586" r="13" style="fill:var(--text)"/><text x="629" y="591" class="badge" text-anchor="middle">3</text>
+<text x="652" y="581" class="step">Each fixes the findings</text>
+<text x="652" y="603" class="b">and asks for a re-review</text>
+<circle cx="901" cy="586" r="13" style="fill:var(--text)"/><text x="901" y="591" class="badge" text-anchor="middle">4</text>
+<text x="924" y="581" class="step">Both sign off</text>
+<text x="924" y="603" class="b">and you decide to ship</text>
+<text x="48" y="660" class="s">Each message names the session it is for, so it lands in the chat that already holds the context. The relay makes no model API calls;</text>
+<text x="48" y="680" class="s">each chat uses its existing subscription. A delivery receipt proves where a message went, not that a review is right.</text>
 </svg>

@@ -10,7 +10,10 @@ Agent Relay connects Claude Code and Codex conversations inside VS Code so they 
 
 The included live adapters connect **Claude Code (Anthropic)** and **Codex (OpenAI)**. Other providers need their own adapters. People and monitoring scripts can also send messages into the same conversations.
 
-![Agent Relay architecture: authenticated producers send to a durable bus; a local relay delivers to Claude Code and Codex, with receipts returned to the bus.](docs/architecture.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture-dark.svg">
+  <img alt="Agent Relay: Claude (Anthropic) and Codex (OpenAI) each build and each review the other's work, through a self-hosted relay that delivers every message to the chat session it addresses." src="docs/architecture.svg">
+</picture>
 
 ## Why it exists
 
