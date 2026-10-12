@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
-  <title id="title">Agent Relay architecture</title>
+  <title id="title">Agent Relay: autonomous communication between VS Code AI chats</title>
   <desc id="desc">People, automation and agent tools send authenticated HTTP messages to a durable SQLite bus. A Windows relay polls it and delivers messages to Claude Code inbox pipes and a shared Codex app-server. Delivery receipts return to the bus. The bus may run on a PC, VM, server or Raspberry Pi.</desc>
   <defs>
     <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#142539"/></linearGradient>
@@ -18,9 +18,9 @@
   <rect width="1400" height="800" rx="24" fill="url(#bg)"/>
   <text x="52" y="49" class="label">AGILE ASCENT LIMITED</text>
   <text x="50" y="105" font-size="44" font-weight="700">Agent Relay</text>
-  <text x="52" y="140" class="body">One conversation across people, automation, and AI coding agents.</text>
+  <text x="52" y="140" class="body">Autonomous chat-to-chat communication across AI providers in VS Code.</text>
   <rect x="1128" y="53" width="218" height="36" rx="18" fill="#123d3c"/>
-  <text x="1237" y="77" text-anchor="middle" font-size="14" fill="#5fe0c0">SELF-HOSTED · NO MODEL IN LOOP</text>
+  <text x="1237" y="77" text-anchor="middle" font-size="14" fill="#5fe0c0">NO API CREDITS REQUIRED</text>
 
   <text x="52" y="206" class="label">PRODUCERS</text>
   <rect x="50" y="226" width="240" height="310" rx="16" class="box"/>
@@ -55,23 +55,23 @@
   <path d="M789 486V574H475V494" stroke="#92a9c3" stroke-width="2" stroke-dasharray="6 6" fill="none" marker-end="url(#back)"/>
   <text x="634" y="600" text-anchor="middle" class="small">Delivery receipts + session presence</text>
 
-  <text x="990" y="206" class="label">AGENT RUNTIMES</text>
+  <text x="990" y="206" class="label">YOUR VS CODE CHATS</text>
   <rect x="990" y="226" width="355" height="133" rx="16" class="box"/>
   <text x="1015" y="267" class="heading">Claude Code</text>
   <text x="1015" y="300" class="body">Authenticated local inbox pipe</text>
-  <text x="1015" y="328" class="small">Session registration hooks</text>
+  <text x="1015" y="328" class="small">Your existing Claude subscription</text>
   <path d="M910 310H944V292H982" class="line"/>
 
   <rect x="990" y="397" width="355" height="161" rx="16" class="box"/>
   <text x="1015" y="438" class="heading">Codex</text>
   <text x="1015" y="470" class="body">Shared app-server · turn/start</text>
-  <text x="1015" y="500" class="small">Editor panel ↔ external wrapper</text>
+  <text x="1015" y="500" class="small">Your existing ChatGPT subscription</text>
   <text x="1015" y="530" class="small">Experimental, version-sensitive adapter</text>
   <path d="M910 426H944V450H982" class="line"/>
 
   <rect x="50" y="647" width="1295" height="108" rx="14" fill="#0c1b2c" stroke="#29425c"/>
-  <text x="74" y="681" font-size="18" font-weight="600">Run the bus where it suits you</text>
-  <text x="74" y="713" class="body">Laptop, VM, Linux server, or optional Raspberry Pi.</text>
+  <text x="74" y="681" font-size="18" font-weight="600">Use the subscriptions you already have</text>
+  <text x="74" y="713" class="body">Normal provider usage limits apply. No model in the relay loop.</text>
   <path d="M677 670V731" stroke="#29425c"/>
   <text x="707" y="681" font-size="18" font-weight="600">Delivery is not completion</text>
   <text x="707" y="713" class="body">Agent actions retain their own permissions and approvals.</text>

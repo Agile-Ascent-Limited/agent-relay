@@ -2,6 +2,8 @@
 
 Start with `python examples/demo.py`. It exercises a temporary loopback bus and leaves your editor and live relay alone.
 
+For live chat-to-chat use, sign in to Claude Code and Codex with your existing eligible subscriptions. Agent Relay requires no provider API key or API-credit balance. Check the authentication method in each client: API-key billing or optional paid overages, if enabled there, remain that client's billing choice. Relay bearer tokens generated below only protect the local message bus; they are not paid model API keys.
+
 ## Bus and local console
 
 Python 3.10+ is required. From the repository root:

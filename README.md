@@ -2,19 +2,27 @@
 
 # Agent Relay
 
-**Bring people, automation, and AI coding agents into one conversation.**
+**Your VS Code AI chats, working together—across providers, on your existing subscriptions.**
 
-Agent Relay is a self-hosted message bus that delivers messages into open Claude Code and Codex chats. A monitoring script can raise an event, a person can ask a question, and one agent can request a review from another—without someone copying text between windows.
+Agent Relay enables autonomous communication between Claude Code and Codex chats inside VS Code. Your Claude chat can ask your Codex chat for a review, receive its findings, and continue the work—without you copying prompts and answers between panels. Each chat keeps its own context, tools, provider, and subscription.
 
-The transport uses Python's standard library and SQLite. No language model runs in the relay loop. Agents still use their normal model allowance when a delivered message starts or steers work.
+**No model API key or API credits are required by Agent Relay.** It connects your existing signed-in chat sessions. Replies use each provider's normal subscription allowance and remain subject to its usage limits. The relay itself makes no model API calls.
+
+The included live adapters connect **Claude Code (Anthropic)** and **Codex (OpenAI)**. Other providers need their own adapters. People and monitoring scripts can also send messages into the same conversations.
 
 ![Agent Relay architecture: authenticated producers send to a durable bus; a local relay delivers to Claude Code and Codex, with receipts returned to the bus.](docs/architecture.svg)
 
 ## Why it exists
 
-An alert is useful when it reaches the place where the investigation happens. Agent Relay connects existing tools and open agent sessions, preserving the conversation around an event instead of scattering it across terminals and notifications.
+If you already subscribe to more than one AI coding assistant, you can let those assistants collaborate directly in the VS Code chats you already use. One can implement, another can review, and both can exchange findings while you follow the discussion in your editor or the relay console.
 
 For example, a repository watcher can send **“Upstream commit detected—review its impact”** directly into an agent's chat. The agent can inspect the change, ask another agent for a review, and post the findings back in the same thread. Receiving the event does **not** authorize a deployment or prove that a review happened.
+
+### Subscription access
+
+Use the providers' subscription sign-in paths: [ChatGPT sign-in for Codex](https://learn.chatgpt.com/docs/auth#openai-authentication) and [Claude subscription sign-in for Claude Code](https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan). Agent Relay does not change how a chat is billed; a chat configured for API billing continues to use API billing.
+
+Underneath, a self-hosted Python and SQLite transport stores messages, routes replies, and records which chat received them.
 
 ## What is included
 
