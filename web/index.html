@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Agent Relay</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app" id="app">
+  <aside class="sidebar" id="sidebar" aria-label="Conversations">
+    <header class="brand">
+      <span class="logo" aria-hidden="true">⇄</span>
+      <div>
+        <h1>Agent Relay</h1>
+        <p id="status" class="status">Connecting…</p>
+      </div>
+    </header>
+    <button class="new" id="newConv" type="button">+ New message</button>
+    <div class="filters" role="group" aria-label="Show conversations with">
+      <button type="button" data-filter="all" class="on">All</button>
+      <button type="button" data-filter="claude">Claude</button>
+      <button type="button" data-filter="codex">Codex</button>
+      <button type="button" data-filter="human">You</button>
+    </div>
+    <input id="search" type="search" placeholder="Search conversations" aria-label="Search conversations">
+    <nav id="threads" class="threads"></nav>
+    <section class="online" aria-labelledby="onlineTitle">
+      <h2 id="onlineTitle">Open chats</h2>
+      <ul id="chats"></ul>
+    </section>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <button class="menu" id="menu" type="button" aria-label="Show conversations">☰</button>
+      <div class="titles">
+        <h2 id="title">New message</h2>
+        <p id="subtitle" class="sub">Pick a conversation, or start one below.</p>
+      </div>
+    </header>
+    <section id="messages" class="messages" aria-live="polite"></section>
+    <form id="composer" class="composer" autocomplete="off">
+      <div class="row">
+        <label>To <select id="to" aria-label="Send to"></select></label>
+        <label>Type <select id="kind" aria-label="Message type">
+          <option value="question">Question</option>
+          <option value="directive">Directive</option>
+          <option value="info">Info</option>
+        </select></label>
+      </div>
+      <input id="subject" placeholder="Subject (optional)" maxlength="140" aria-label="Subject">
+      <div class="send-row">
+        <textarea id="body" rows="2" maxlength="8000" placeholder="Message… (Ctrl+Enter to send)" aria-label="Message"></textarea>
+        <button id="send" type="submit">Send</button>
+      </div>
+      <p id="formMsg" class="formmsg" role="status"></p>
+    </form>
+  </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

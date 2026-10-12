@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Relay architecture</title>
+  <desc id="desc">People, automation and agent tools send authenticated HTTP messages to a durable SQLite bus. A Windows relay polls it and delivers messages to Claude Code inbox pipes and a shared Codex app-server. Delivery receipts return to the bus. The bus may run on a PC, VM, server or Raspberry Pi.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#142539"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#5fe0c0"/></marker>
+    <marker id="back" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#92a9c3"/></marker>
+    <style>
+      text{font-family:Segoe UI,Arial,sans-serif;fill:#edf4fc}
+      .label{font-size:13px;letter-spacing:2px;fill:#8daac6;font-weight:600}
+      .heading{font-size:24px;font-weight:650}
+      .body{font-size:17px;fill:#b8cade}
+      .small{font-size:14px;fill:#b8cade}
+      .box{fill:#16283d;stroke:#35516d;stroke-width:1.5}
+      .line{fill:none;stroke:#5fe0c0;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1400" height="800" rx="24" fill="url(#bg)"/>
+  <text x="52" y="49" class="label">AGILE ASCENT LIMITED</text>
+  <text x="50" y="105" font-size="44" font-weight="700">Agent Relay</text>
+  <text x="52" y="140" class="body">One conversation across people, automation, and AI coding agents.</text>
+  <rect x="1128" y="53" width="218" height="36" rx="18" fill="#123d3c"/>
+  <text x="1237" y="77" text-anchor="middle" font-size="14" fill="#5fe0c0">SELF-HOSTED · NO MODEL IN LOOP</text>
+
+  <text x="52" y="206" class="label">PRODUCERS</text>
+  <rect x="50" y="226" width="240" height="310" rx="16" class="box"/>
+  <text x="73" y="268" class="heading">People</text>
+  <text x="73" y="296" class="body">Local web console</text>
+  <path d="M73 317H268" stroke="#35516d"/>
+  <text x="73" y="350" class="heading">Automation</text>
+  <text x="73" y="378" class="body">Watchers and scripts</text>
+  <path d="M73 402H268" stroke="#35516d"/>
+  <text x="73" y="438" class="heading">Agent tools</text>
+  <text x="73" y="467" class="body">MCP / HTTP replies</text>
+  <text x="73" y="508" class="small">Bearer-authenticated JSON</text>
+
+  <text x="350" y="206" class="label">DURABLE TRANSPORT</text>
+  <rect x="350" y="276" width="250" height="210" rx="16" class="box"/>
+  <text x="375" y="318" class="heading">Message bus</text>
+  <text x="375" y="350" class="body">Threads · sessions · receipts</text>
+  <rect x="375" y="378" width="200" height="53" rx="9" fill="#0b1b2a" stroke="#35516d"/>
+  <text x="475" y="411" text-anchor="middle" font-size="19">SQLite storage</text>
+  <text x="375" y="461" class="small">Python standard library</text>
+  <path d="M290 366H342" class="line"/>
+
+  <text x="670" y="206" class="label">WORKSTATION DELIVERY</text>
+  <rect x="670" y="276" width="240" height="210" rx="16" class="box"/>
+  <text x="694" y="318" class="heading">Windows relay</text>
+  <text x="694" y="351" class="body">Route to an open chat</text>
+  <text x="694" y="383" class="body">Queue observed mail</text>
+  <text x="694" y="415" class="body">Apply a burst brake</text>
+  <text x="694" y="461" class="small">No model calls in delivery loop</text>
+  <path d="M600 366H662" class="line"/>
+  <text x="635" y="344" text-anchor="middle" class="small">poll</text>
+  <path d="M789 486V574H475V494" stroke="#92a9c3" stroke-width="2" stroke-dasharray="6 6" fill="none" marker-end="url(#back)"/>
+  <text x="634" y="600" text-anchor="middle" class="small">Delivery receipts + session presence</text>
+
+  <text x="990" y="206" class="label">AGENT RUNTIMES</text>
+  <rect x="990" y="226" width="355" height="133" rx="16" class="box"/>
+  <text x="1015" y="267" class="heading">Claude Code</text>
+  <text x="1015" y="300" class="body">Authenticated local inbox pipe</text>
+  <text x="1015" y="328" class="small">Session registration hooks</text>
+  <path d="M910 310H944V292H982" class="line"/>
+
+  <rect x="990" y="397" width="355" height="161" rx="16" class="box"/>
+  <text x="1015" y="438" class="heading">Codex</text>
+  <text x="1015" y="470" class="body">Shared app-server · turn/start</text>
+  <text x="1015" y="500" class="small">Editor panel ↔ external wrapper</text>
+  <text x="1015" y="530" class="small">Experimental, version-sensitive adapter</text>
+  <path d="M910 426H944V450H982" class="line"/>
+
+  <rect x="50" y="647" width="1295" height="108" rx="14" fill="#0c1b2c" stroke="#29425c"/>
+  <text x="74" y="681" font-size="18" font-weight="600">Run the bus where it suits you</text>
+  <text x="74" y="713" class="body">Laptop, VM, Linux server, or optional Raspberry Pi.</text>
+  <path d="M677 670V731" stroke="#29425c"/>
+  <text x="707" y="681" font-size="18" font-weight="600">Delivery is not completion</text>
+  <text x="707" y="713" class="body">Agent actions retain their own permissions and approvals.</text>
+  <text x="52" y="782" font-size="12" fill="#8daac6">Reference architecture · Shared trusted-team bus · Remote access requires a protected transport</text>
+</svg>
